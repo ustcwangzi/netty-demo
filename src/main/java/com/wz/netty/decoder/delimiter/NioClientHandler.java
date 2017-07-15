@@ -1,6 +1,5 @@
 package com.wz.netty.decoder.delimiter;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,7 +16,7 @@ public class NioClientHandler extends ChannelHandlerAdapter {
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) {
+    public void handlerAdded(ChannelHandlerContext ctx) {
         for (int i = 0; i < 100; i++) {
             ctx.writeAndFlush(Unpooled.copiedBuffer(req));
         }
